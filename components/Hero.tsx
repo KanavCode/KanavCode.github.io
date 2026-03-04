@@ -1,0 +1,141 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+
+// EDIT: Your name displayed in the hero
+const NAME = "Kanav";
+
+// EDIT: Tagline that types out after your name
+const TAGLINE =
+  "I build things that work. CSE student, software intern — and occasionally obsessed with how brains and systems aren't that different.";
+
+// EDIT: Tech stack tags shown below the tagline
+const TECH_TAGS = ["React", "TypeScript", "Laravel", "Next.js", "Python"];
+
+// EDIT: Social links — update URLs here
+const SOCIALS = {
+  github: "https://github.com/KanavCode",
+  linkedin: "https://www.linkedin.com/in/kanav-modi/",
+  email: "mailto:modikanav9@gmail.com",
+};
+
+function useTypewriter(text: string, speed = 50, delay = 0) {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        if (i < text.length) {
+          setDisplayed(text.slice(0, i + 1));
+          i++;
+        } else {
+          setDone(true);
+          clearInterval(interval);
+        }
+      }, speed);
+      return () => clearInterval(interval);
+    }, delay);
+    return () => clearTimeout(timeout);
+  }, [text, speed, delay]);
+
+  return { displayed, done };
+}
+
+export default function Hero() {
+  const greeting = useTypewriter("> Hello, World_", 60, 300);
+  const name = useTypewriter(NAME, 80, 1400);
+  const tagline = useTypewriter(TAGLINE, 25, 2200);
+
+  return (
+    <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+      {/* Top-left greeting */}
+      <div className="absolute top-28 left-6 md:left-16 lg:left-24">
+        <span className="font-mono text-accent text-sm">
+          {greeting.displayed}
+          {!greeting.done && <span className="blink">_</span>}
+        </span>
+      </div>
+
+      {/* Center content */}
+      <div className="mt-16">
+        <h1 className="font-mono font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-text-primary mb-6">
+          <span className="glitch" data-text={NAME}>
+            {name.displayed}
+          </span>
+          {name.done && <span className="blink text-accent">_</span>}
+        </h1>
+
+        <p className="font-mono text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-8">
+          &quot;{tagline.displayed}&quot;
+          {tagline.done && <span className="blink text-accent">_</span>}
+        </p>
+
+        {/* Tech tags */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: tagline.done ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-wrap gap-3"
+        >
+          {TECH_TAGS.map((tag) => (
+            <span
+              key={tag}
+              className="font-mono text-xs px-3 py-1.5 border border-border text-text-secondary rounded-sm"
+            >
+              {tag}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Bottom-left: Social links */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3, duration: 0.5 }}
+        className="absolute bottom-12 left-6 md:left-16 lg:left-24 flex gap-5"
+      >
+        <a
+          href={SOCIALS.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-text-secondary hover:text-accent transition-colors"
+          aria-label="GitHub"
+        >
+          <Github size={20} />
+        </a>
+        <a
+          href={SOCIALS.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-text-secondary hover:text-accent transition-colors"
+          aria-label="LinkedIn"
+        >
+          <Linkedin size={20} />
+        </a>
+        <a
+          href={SOCIALS.email}
+          className="text-text-secondary hover:text-accent transition-colors"
+          aria-label="Email"
+        >
+          <Mail size={20} />
+        </a>
+      </motion.div>
+
+      {/* Bottom-right: Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 3.5, duration: 0.5 }}
+        className="absolute bottom-12 right-6 md:right-16 lg:right-24 flex items-center gap-2 text-text-muted"
+      >
+        <span className="font-mono text-xs blink">↓ scroll</span>
+        <ChevronDown size={14} className="blink" />
+      </motion.div>
+    </section>
+  );
+}
