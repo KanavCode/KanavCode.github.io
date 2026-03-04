@@ -31,7 +31,7 @@ const fadeUp = {
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
+    <section id="about" className="py-24 px-6 md:px-16 lg:px-24 max-w-6xl mx-auto overflow-x-hidden">
       {/* EDIT: Section heading */}
       <p className="section-heading">{"// about.me"}</p>
 
@@ -65,7 +65,7 @@ export default function About() {
               viewport={{ once: true, margin: "-50px" }}
               className="flex gap-3 text-sm font-mono"
             >
-              <span className="text-accent shrink-0 w-24 text-right">
+              <span className="text-accent shrink-0 w-20 sm:w-24 text-right">
                 {skill.label}
               </span>
               <span className="text-text-muted">→</span>

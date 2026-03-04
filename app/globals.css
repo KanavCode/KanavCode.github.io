@@ -149,3 +149,23 @@ body {
   margin-bottom: 3rem;
   letter-spacing: 0.05em;
 }
+
+/* ─── Mobile Safety ─── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ─── Touch Device Cursor Override ─── */
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* ─── Safe Area for Notched Phones ─── */
+@supports (padding: max(0px)) {
+  .fixed-bottom-safe {
+    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+  }
+}

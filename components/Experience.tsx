@@ -53,18 +53,18 @@ export default function Experience() {
             {/* Timeline dot */}
             <div className="absolute -left-[calc(2rem+5px)] top-1.5 w-2.5 h-2.5 rounded-full bg-accent" />
 
-            <h3 className="font-mono font-bold text-text-primary text-base">
+            <h3 className="font-mono font-bold text-text-primary text-base break-words">
               {job.company}
             </h3>
             <p className="font-mono text-accent text-sm mb-1">{job.role}</p>
-            <p className="font-mono text-text-muted text-xs mb-3">
+            <p className="font-mono text-text-muted text-xs mb-3 leading-relaxed break-words">
               {job.period}
             </p>
             <ul className="space-y-2">
               {job.bullets.map((bullet, j) => (
                 <li
                   key={j}
-                  className="font-sans text-text-secondary text-sm leading-relaxed pl-4 relative before:content-['—'] before:absolute before:left-0 before:text-text-muted"
+                  className="font-sans text-text-secondary text-sm leading-relaxed pl-5 relative before:content-['\u2014'] before:absolute before:left-0 before:text-text-muted"
                 >
                   {bullet}
                 </li>

@@ -27,7 +27,7 @@ export default function Contact() {
         className="absolute inset-0 flex items-center justify-center pointer-events-none select-none"
         aria-hidden="true"
       >
-        <span className="font-mono text-[6rem] sm:text-[8rem] md:text-[10rem] font-bold text-text-muted/10 whitespace-nowrap">
+        <span className="font-mono text-[3.5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] font-bold text-text-muted/10 whitespace-nowrap">
           let&apos;s_build_something
         </span>
       </div>
@@ -45,12 +45,12 @@ export default function Contact() {
 
         <a
           href={`mailto:${EMAIL}`}
-          className="group font-mono text-sm px-8 py-3 border border-accent text-accent rounded-sm transition-all duration-300 hover:bg-accent hover:text-black mb-8"
+          className="group font-mono text-sm px-6 sm:px-8 py-3 w-full sm:w-auto text-center border border-accent text-accent rounded-sm transition-all duration-300 hover:bg-accent hover:text-black mb-8"
         >
           → {EMAIL}
         </a>
 
-        <div className="flex gap-5">
+        <div className="flex gap-4 sm:gap-5">
           <a
             href={SOCIALS.github}
             target="_blank"

@@ -14,7 +14,7 @@ const inter = Inter({
   display: "swap",
 });
 
-// EDIT: Update metadata for SEO — title, description, and canonical URL
+// EDIT: Update metadata for SEO
 export const metadata: Metadata = {
   title: "Kanav Modi | Software Developer",
   description:
@@ -26,7 +26,23 @@ export const metadata: Metadata = {
       "3rd year CSE student and Software Developer Intern. Building full-stack web apps, AI projects, and open source. Based in India, open to remote.",
     url: "https://kanavmodi.me",
     siteName: "Kanav Modi",
+    // OG-IMAGE: Replace /public/og-image.png with a real 1200x630px image for social sharing cards
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Kanav Modi — Software Developer",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kanav Modi | Software Developer",
+    description:
+      "3rd year CSE student and Software Developer Intern. Building full-stack web apps, AI projects, and open source.",
+    images: ["/og-image.png"],
   },
   alternates: {
     canonical: "https://kanavmodi.me",

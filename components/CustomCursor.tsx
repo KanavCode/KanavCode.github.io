@@ -20,23 +20,22 @@ export default function CustomCursor() {
       cursor.style.top = `${e.clientY}px`;
     };
 
-    const addHover = () => cursor.classList.add("hover");
-    const removeHover = () => cursor.classList.remove("hover");
+    // Use event delegation — catches dynamically revealed elements (Framer Motion scroll reveals)
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.closest('a, button, [role="button"]')) {
+        cursor.classList.add("hover");
+      } else {
+        cursor.classList.remove("hover");
+      }
+    };
 
     document.addEventListener("mousemove", move);
-
-    const interactiveEls = document.querySelectorAll("a, button, [role='button']");
-    interactiveEls.forEach((el) => {
-      el.addEventListener("mouseenter", addHover);
-      el.addEventListener("mouseleave", removeHover);
-    });
+    document.addEventListener("mouseover", handleMouseOver);
 
     return () => {
       document.removeEventListener("mousemove", move);
-      interactiveEls.forEach((el) => {
-        el.removeEventListener("mouseenter", addHover);
-        el.removeEventListener("mouseleave", removeHover);
-      });
+      document.removeEventListener("mouseover", handleMouseOver);
     };
   }, []);
 

@@ -59,7 +59,7 @@ export default function Projects() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="group relative bg-surface border border-border rounded-sm p-6 transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_4px_24px_rgba(255,165,0,0.08)]"
+            className="group relative bg-surface border border-border rounded-sm p-4 sm:p-6 transition-all duration-300 hover:border-accent hover:-translate-y-1 hover:shadow-[0_4px_24px_rgba(255,165,0,0.08)]"
           >
             {/* Project name */}
             <h3 className="font-mono font-bold text-accent text-base mb-2">
@@ -77,7 +77,7 @@ export default function Projects() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-[10px] px-2 py-0.5 border border-border text-text-muted rounded-sm"
+                    className="font-mono text-[10px] sm:text-xs px-2 py-0.5 border border-border text-text-muted rounded-sm"
                   >
                     {t}
                   </span>
@@ -96,6 +96,25 @@ export default function Projects() {
           </motion.div>
         ))}
       </div>
+
+      {/* Task 9: View all on GitHub link */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+        className="mt-10 text-center"
+      >
+        {/* EDIT: GitHub profile URL */}
+        <a
+          href="https://github.com/KanavCode"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-sm text-text-secondary hover:text-accent transition-colors border-b border-text-muted hover:border-accent pb-0.5"
+        >
+          → view all on github
+        </a>
+      </motion.div>
     </section>
   );
 }

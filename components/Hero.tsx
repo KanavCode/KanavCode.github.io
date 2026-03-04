@@ -7,9 +7,9 @@ import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 // EDIT: Your name displayed in the hero
 const NAME = "Kanav";
 
-// EDIT: Tagline that types out after your name
+// EDIT: Hero tagline
 const TAGLINE =
-  "I build things that work. CSE student, software intern — and occasionally obsessed with how brains and systems aren't that different.";
+  "CSE student. Software intern. I build full-stack systems by day — and spend the rest of my time wondering why the brain runs on 20 watts.";
 
 // EDIT: Tech stack tags shown below the tagline
 const TECH_TAGS = ["React", "TypeScript", "Laravel", "Next.js", "Python"];
@@ -47,14 +47,14 @@ function useTypewriter(text: string, speed = 50, delay = 0) {
 
 export default function Hero() {
   const greeting = useTypewriter("> Hello, World_", 60, 300);
-  const name = useTypewriter(NAME, 80, 1400);
-  const tagline = useTypewriter(TAGLINE, 25, 2200);
+  const name = useTypewriter(NAME, 80, 800);
+  const tagline = useTypewriter(TAGLINE, 25, 1400);
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center px-6 md:px-16 lg:px-24 max-w-6xl mx-auto">
       {/* Top-left greeting */}
-      <div className="absolute top-28 left-6 md:left-16 lg:left-24">
-        <span className="font-mono text-accent text-sm">
+      <div className="absolute top-32 md:top-36 left-6 md:left-16 lg:left-24">
+        <span className="font-mono text-accent text-xs sm:text-sm">
           {greeting.displayed}
           {!greeting.done && <span className="blink">_</span>}
         </span>
@@ -62,14 +62,14 @@ export default function Hero() {
 
       {/* Center content */}
       <div className="mt-16">
-        <h1 className="font-mono font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-text-primary mb-6">
+        <h1 className="font-mono font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-text-primary mb-6 min-h-[1.2em]">
           <span className="glitch" data-text={NAME}>
             {name.displayed}
           </span>
           {name.done && <span className="blink text-accent">_</span>}
         </h1>
 
-        <p className="font-mono text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-8">
+        <p className="font-mono text-text-secondary text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-8 px-2 md:px-0">
           &quot;{tagline.displayed}&quot;
           {tagline.done && <span className="blink text-accent">_</span>}
         </p>
@@ -96,8 +96,8 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3, duration: 0.5 }}
-        className="absolute bottom-12 left-6 md:left-16 lg:left-24 flex gap-5"
+        transition={{ delay: 1.5, duration: 0.5 }}
+        className="absolute bottom-8 sm:bottom-12 left-6 md:left-16 lg:left-24 flex gap-5"
       >
         <a
           href={SOCIALS.github}
@@ -130,8 +130,8 @@ export default function Hero() {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 3.5, duration: 0.5 }}
-        className="absolute bottom-12 right-6 md:right-16 lg:right-24 flex items-center gap-2 text-text-muted"
+        transition={{ delay: 2, duration: 0.5 }}
+        className="absolute bottom-8 sm:bottom-12 right-6 md:right-16 lg:right-24 hidden sm:flex items-center gap-2 text-text-muted"
       >
         <span className="font-mono text-xs blink">↓ scroll</span>
         <ChevronDown size={14} className="blink" />

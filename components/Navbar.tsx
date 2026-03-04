@@ -64,7 +64,7 @@ export default function Navbar() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="font-mono text-accent font-bold text-lg tracking-tight hover:opacity-80 transition-opacity"
+          className="font-mono text-accent font-bold text-base md:text-lg tracking-tight hover:opacity-80 transition-opacity"
         >
           kanav_
         </a>
@@ -104,7 +104,7 @@ export default function Navbar() {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="fixed top-0 right-0 h-screen w-64 bg-surface border-l border-border z-50 md:hidden"
+            className="fixed top-0 right-0 h-screen w-64 bg-surface border-l border-border z-[60] md:hidden overflow-y-auto"
           >
             <div className="flex justify-end p-6">
               <button
