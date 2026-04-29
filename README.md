@@ -73,7 +73,3 @@ Pushes to `main` branch auto-deploy via GitHub Actions → GitHub Pages.
 1. In your GitHub repo, go to **Settings → Pages → Source** → select **GitHub Actions**
 2. Push to `main` — the workflow builds and deploys automatically
 3. Custom domain `kanavmodi.me` is preserved via `public/CNAME`
-
-## License
-
-MIT
