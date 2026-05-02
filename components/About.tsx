@@ -15,7 +15,7 @@ const SKILLS = [
   { label: "Languages", items: "JavaScript, TypeScript, C/C++, PHP, Python" },
   { label: "Frontend", items: "React, Next.js, Tailwind CSS, React Native" },
   { label: "Backend", items: "Laravel, Node.js, Express.js" },
-  { label: "Database", items: "PostgreSQL, MySQL, SQL" },
+  { label: "Database", items: "PostgreSQL, MySQL, MongoDB" },
   { label: "Tools", items: "Docker, Git, REST APIs" },
   { label: "Learning", items: "TensorFlow, NLP, ML" },
 ];

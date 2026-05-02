@@ -17,7 +17,6 @@ const PROJECTS: Array<{
       "Offline-capable mobile communication via Bluetooth Mesh, with AI voice assistance and real-time mapping.",
     tech: ["React Native", "TypeScript", "Bluetooth Mesh API", "IBM Watson"],
     github: "https://github.com/kanavcode/auramesh_2.0",
-    liveUrl: "https://kanavcode.me",
   },
   {
     name: "StockSense",
