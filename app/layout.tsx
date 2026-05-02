@@ -26,7 +26,6 @@ export const metadata: Metadata = {
       "3rd year CSE student and Software Developer Intern. Building full-stack web apps, AI projects, and open source. Based in India, open to remote.",
     url: "https://kanavmodi.me",
     siteName: "Kanav Modi",
-    // OG-IMAGE: Replace /public/og-image.png with a real 1200x630px image for social sharing cards
     images: [
       {
         url: "/og-image.png",
