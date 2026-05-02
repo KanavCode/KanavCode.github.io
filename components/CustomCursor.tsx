@@ -1,14 +1,18 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
     // Only enable on devices with fine pointer (desktop)
-    const hasPointer = window.matchMedia("(pointer: fine)").matches;
-    if (!hasPointer) return;
+    const isFinePointer = window.matchMedia("(any-pointer: fine)").matches;
+    if (!isFinePointer) {
+      setIsTouchDevice(true);
+      return;
+    }
 
     const cursor = cursorRef.current;
     if (!cursor) return;
@@ -38,6 +42,8 @@ export default function CustomCursor() {
       document.removeEventListener("mouseover", handleMouseOver);
     };
   }, []);
+
+  if (isTouchDevice) return null;
 
   return <div ref={cursorRef} className="custom-cursor hidden" />;
 }
