@@ -18,8 +18,8 @@ const WORK = [
 // EDIT: Education entries
 const EDUCATION = [
   {
-    institution: "B.Tech — Computer Science Engineering",
-    detail: "3rd Year · India",
+    institution: "The Maharaja Sayajirao University of Baroda",
+    detail: "B.Tech in Computer Science Engineering · Expected April 2027",
   },
 ];
 

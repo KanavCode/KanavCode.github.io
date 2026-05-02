@@ -84,7 +84,7 @@ export default function Hero() {
           {TECH_TAGS.map((tag) => (
             <span
               key={tag}
-              className="font-mono text-xs px-3 py-1.5 border border-border text-text-secondary rounded-sm"
+              className="font-mono text-sm px-3 py-1.5 border border-border text-text-secondary rounded-sm"
             >
               {tag}
             </span>

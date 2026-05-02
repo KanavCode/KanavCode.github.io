@@ -1,16 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 // EDIT: Projects — update name, description, tech stack, and GitHub URLs here
-const PROJECTS = [
+const PROJECTS: Array<{
+  name: string;
+  description: string;
+  tech: string[];
+  github: string;
+  liveUrl?: string;
+}> = [
   {
     name: "AuraMesh 2.0",
     description:
       "Offline-capable mobile communication via Bluetooth Mesh, with AI voice assistance and real-time mapping.",
     tech: ["React Native", "TypeScript", "Bluetooth Mesh API", "IBM Watson"],
     github: "https://github.com/kanavcode/auramesh_2.0",
+    liveUrl: "https://kanavcode.me",
   },
   {
     name: "StockSense",
@@ -18,6 +25,7 @@ const PROJECTS = [
       "AI-powered financial dashboard with ML stock predictions and real-time social media sentiment analysis.",
     tech: ["React", "TypeScript", "Python", "TensorFlow", "NLP", "REST APIs"],
     github: "https://github.com/kanavcode/stocksense",
+    liveUrl: "https://kanavcode.me",
   },
   {
     name: "Smart Campus Utility Hub",
@@ -25,6 +33,7 @@ const PROJECTS = [
       "Full-stack academic platform with automated timetable generation, club management, and an AI chatbot.",
     tech: ["React", "TypeScript", "Node.js", "Express.js", "SQL"],
     github: "https://github.com/kanavcode/smart-campus-utility-hub",
+    liveUrl: "https://kanavcode.me",
   },
   {
     name: "Bank Management System",
@@ -77,21 +86,34 @@ export default function Projects() {
                 {project.tech.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-[10px] sm:text-xs px-2 py-0.5 border border-border text-text-muted rounded-sm"
+                    className="font-mono text-xs sm:text-sm px-2 py-0.5 border border-border text-text-secondary rounded-sm"
                   >
                     {t}
                   </span>
                 ))}
               </div>
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-text-secondary hover:text-accent transition-colors shrink-0 ml-4"
-                aria-label={`GitHub repo for ${project.name}`}
-              >
-                <Github size={18} />
-              </a>
+              <div className="flex items-center gap-3 shrink-0 ml-4">
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-secondary hover:text-accent transition-colors"
+                    aria-label={`Live demo for ${project.name}`}
+                  >
+                    <ExternalLink size={18} />
+                  </a>
+                )}
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-text-secondary hover:text-accent transition-colors"
+                  aria-label={`GitHub repo for ${project.name}`}
+                >
+                  <Github size={18} />
+                </a>
+              </div>
             </div>
           </motion.div>
         ))}
