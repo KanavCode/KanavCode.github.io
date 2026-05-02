@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
+import { Github, Linkedin, ChevronDown } from "lucide-react";
 
 // EDIT: Your name displayed in the hero
 const NAME = "Kanav";
@@ -18,7 +18,6 @@ const TECH_TAGS = ["React", "TypeScript", "Laravel", "Next.js", "Python"];
 const SOCIALS = {
   github: "https://github.com/KanavCode",
   linkedin: "https://www.linkedin.com/in/kanav-modi/",
-  email: "mailto:modikanav9@gmail.com",
 };
 
 function useTypewriter(text: string, speed = 50, delay = 0) {
@@ -116,13 +115,6 @@ export default function Hero() {
           aria-label="LinkedIn"
         >
           <Linkedin size={20} />
-        </a>
-        <a
-          href={SOCIALS.email}
-          className="text-text-secondary hover:text-accent transition-colors"
-          aria-label="Email"
-        >
-          <Mail size={20} />
         </a>
       </motion.div>
 

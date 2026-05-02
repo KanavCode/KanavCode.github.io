@@ -64,7 +64,7 @@ export default function Experience() {
               {job.bullets.map((bullet, j) => (
                 <li
                   key={j}
-                  className="font-sans text-text-secondary text-sm leading-relaxed pl-5 relative before:content-['\u2014'] before:absolute before:left-0 before:text-text-muted"
+                  className="font-sans text-text-secondary text-sm leading-relaxed pl-5 relative before:content-['—'] before:absolute before:left-0 before:text-text-muted"
                 >
                   {bullet}
                 </li>
