@@ -32,7 +32,7 @@ export default function Contact() {
     const email = formData.get("email") as string;
     const message = formData.get("message") as string;
 
-    const newErrors: any = {};
+    const newErrors: { name?: string; email?: string; message?: string } = {};
     if (!name.trim()) newErrors.name = "> error: name is required";
     if (!email.trim()) {
       newErrors.email = "> error: email is required";
@@ -70,7 +70,7 @@ export default function Contact() {
         setResult(data.message || "Failed to send message.");
         setStatus("error");
       }
-    } catch (error) {
+    } catch {
       setResult("Something went wrong. Please try again.");
       setStatus("error");
     }
@@ -113,6 +113,8 @@ export default function Contact() {
           className="w-full sm:w-auto flex flex-col gap-4 mb-8"
         >
           <input type="hidden" name="access_key" value="6348d070-6cd3-4f27-9290-919a66d5c96d" />
+          <input type="hidden" name="subject" value="New Portfolio Contact Form Submission" />
+          <input type="hidden" name="from_name" value="Portfolio Contact Form" />
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="relative group w-full">
               <input
